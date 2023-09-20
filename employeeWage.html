@@ -88,7 +88,7 @@
         const password = document.querySelector('#pwd');
         const Passworderror = document.querySelector('.Password-error');
         password.oninput=function(){
-            let PasswordRegex = RegExp('^[A-Za-z0-9]{8,}$');
+            let PasswordRegex = RegExp('^[A-Z]{1,}[a-z]{4,}[!@#$%^&*]{1,}[0-9]{1,}$');
             if(PasswordRegex.test(password.value))
                 Passworderror.textContent = "";
             else  Passworderror.textContent="PhoneNumber is Incorrect";

@@ -36,6 +36,7 @@
         <div>
             <label for="tel">tel input type : </label>
             <input type="tel" id="tel" name="tel">
+            <error-output class="PhoneNumber-error" for="tel"></error-output>
         </div>
         <div>
             <label for="Search">Search input type : </label>
@@ -65,15 +66,23 @@
             let NameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
             if(NameRegex.test(text.value))
                 texterror.textContent = "";
-            else  texterror.textContent="Email is Incorrect";
+            else  texterror.textContent="Name is Incorrect";
         } 
         const email = document.querySelector('#email');
         const emailerror = document.querySelector('.email-error');
         email.oninput=function () {
             let emailregex = RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$');
-            if (emailregex.test(text.value))
+            if (emailregex.test(email.value))
                 emailerror.textContent = "";
             else emailerror.textContent = "Email is Incorrect";
+        }
+        const number = document.querySelector('#tel');
+        const numbererror = document.querySelector('.PhoneNumber-error');
+        number.oninput=function(){
+            let PhoneRegex = RegExp('^[0-9]{2}-[0-9]{10}$');
+            if(PhoneRegex.test(number.value))
+                numbererror.textContent = "";
+            else  numbererror.textContent="PhoneNumber is Incorrect";
         }
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
